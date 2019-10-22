@@ -13,9 +13,88 @@ namespace ConsoleApp1
             // SumOfEvenNumbersInArray();
             // FindSumInArray(8);
 
-            int factorial = FactorialRecursiv(5);
+            //int factorial = FactorialRecursiv(5);
 
-            Console.WriteLine(factorial);
+            // Console.WriteLine(factorial);
+
+            // Console.WriteLine(ArrayContainsDuplicates());
+
+            //Console.WriteLine(SumOfDigitsIterative(123));
+            //Console.WriteLine(SumOfDigitsRecursive(123));
+
+            Dictionary<char, int> dictionar = new Dictionary<char, int>();
+            dictionar.Add('x', 10);
+
+            if(!dictionar.Keys.Contains('x'))
+            {
+
+            }
+
+           // Majority();
+        }
+
+        private static void Majority()
+        {
+            int[] sir = new int[] { 5, 3, 2, 5, 5, 5, 5, 2, 4, 8 };
+            int numar, contor;
+            numar = contor = 0;
+            for (int i = 0; i < sir.Length; i++)
+            {
+                for (int j = i; j < sir.Length; j++)
+                {
+                    if (sir[i] == sir[j])
+                    {
+                        contor++;
+                    }
+                }
+
+                if (contor >= sir.Length / 2)
+                {
+                    numar = sir[i];
+                }
+                contor = 0;
+            }
+            Console.WriteLine("Numarul " + numar + " este majoritar");
+        }
+
+        private static int SumOfDigitsIterative(int n)
+        {
+            int sum = 0;
+            while (n != 0)
+            {
+                sum += n % 10;
+                n /= 10;
+            }
+
+            return sum;
+        }
+
+        static int SumOfDigitsRecursive(int n)
+        {
+            if (n == 0)
+            {
+                return 0;
+            }
+
+            return (n % 10 + SumOfDigitsRecursive(n / 10));
+        }
+
+        private static bool ArrayContainsDuplicates()
+        {
+            int[] arr = new Int32[] { 2, 2, 5, 6, 3 };
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] == arr[j])
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         private static int FactorialRecursiv(int nr)
